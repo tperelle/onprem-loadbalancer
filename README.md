@@ -4,17 +4,15 @@ It is very easy to create load balancers when working on public clouds. But this
 
 Here is an example of load balancing and high-availability solution built with [HAProxy Community Edition](https://www.haproxy.com/documentation/hapee/latest/onepage/) and [Keepalived](https://keepalived.readthedocs.io/en/latest/introduction.html) you can use everywhere.
 
-<center>
-    <img src="docs/images/haproxy_logo.png" height="40px" style="vertical-align: top; margin-top: 30px;">
-    <img src="docs/images/keepalived_logo.png" height="100px">
-</center>
+<img src="docs/images/haproxy_logo.png" height="40px" style="vertical-align: top; margin-top: 30px;" />
+<img src="docs/images/keepalived_logo.png" height="100px" />
 
 ## The lab
 
 I use [Multipass](https://multipass.run) to create the VMs that compose the lab environment.
 
 <center>
-    <img src="docs/images/multipass_logo.png" height="130px">
+    <img src="docs/images/multipass_logo.png" height="80px">
 </center>
 
 ``` bash

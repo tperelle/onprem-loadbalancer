@@ -8,11 +8,13 @@ Here is an example of load balancing and high-availability solution built with [
 
 ## The lab
 
-I use [Multipass](https://multipass.run) to create the VMs that compose the lab environment.
+Here is an overview of the solution implemented in this lab.
 
-<center>
-    <img src="docs/images/multipass_logo.png" height="60px">
-</center>
+<img src="docs/images/loadbalancing.png" height="350px" />
+
+Application is a webapp deployed on VM for the lab, but it can be anything else: a containerized application, the kubernetes api controller, etc. HAProxy is able to deal with any TCP flow.
+
+We start by provisioning the lab. I use [Multipass](https://multipass.run) to create the VMs but you can use any other solution if you prefer.
 
 ``` bash
 # VMs for load balancer
@@ -30,6 +32,10 @@ app2                    Running           192.168.205.7    Ubuntu 20.04 LTS
 lb1                     Running           192.168.205.4    Ubuntu 20.04 LTS
 lb2                     Running           192.168.205.5    Ubuntu 20.04 LTS
 ```
+
+<center>
+    <img src="docs/images/multipass_logo.png" height="60px">
+</center>
 
 ## The load balancing solution
 

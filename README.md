@@ -95,6 +95,8 @@ backend app
     server app2 192.168.205.7:80 check
 ```
 
+Note the use of the `tcp-check` option that allows to benefit from the health check fonctionality.
+
 Restart HAProxy on both `lb` servers:
 
 ``` bash
@@ -199,7 +201,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 In this case it is `enp0s2`. We will use it in the Keepalived configuration as `interface`(default is eth0).
 Update the configuration in `/etc/keepalived/keepalived.conf`:
 
-```json
+```bash
 global_defs {
    notification_email {
      myemail@email.server.com
@@ -351,6 +353,16 @@ Stop one of the app server.
 ```bash
 multipass stop app1
 ```
+
+All the requests are well routed to the remaining app2 server. Thanks to the health check, HAProxy has removed the app1 server from the backend pool.
+
+We restart the app1 server.
+
+```bash
+multipass start app1
+```
+
+Requests are routed back to both app servers.
 
 ## Conclusion
 

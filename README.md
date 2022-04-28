@@ -2,7 +2,7 @@
 
 It is very easy to create load balancers when working on public clouds. But this facility is often not available when you are on a private cloud, unless you have an appliance like [F5](https://www.f5.com) for example.
 
-Here is an example of load balancing and high-availability solution built with [HAProxy Community Edition](https://www.haproxy.com/documentation/hapee/latest/onepage/) and [Keepalived](https://keepalived.readthedocs.io/en/latest/introduction.html) you can use everywhere.
+Here is an example of load balancing and high-availability solution built with [HAProxy Community Edition](https://www.haproxy.com/documentation/hapee/latest/onepage/) and [Keepalived](https://keepalived.readthedocs.io/en/latest/introduction.html).
 
 <img src="docs/images/haproxy_logo.png" height="50px" /> <img height="50px" hspace="10"/> <img src="docs/images/keepalived_logo.png" height="50px" />
 

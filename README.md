@@ -49,6 +49,7 @@ sudo apt install nginx -y
 Customize the default index page on both `app` nodes to add the server hostname in the welcome message. We need to distinguish easily which app server is serving the application.
 
 ``` html
+<!-- Adapt the message to print the server name -->
 <title>Welcome to app1!</title>
 ```
 

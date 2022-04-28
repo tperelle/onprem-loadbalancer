@@ -197,7 +197,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 ```
 
 In this case it is `enp0s2`. We will use it in the Keepalived configuration as `interface`(default is eth0).
-Update the configuration in `/etc/keepalived/keepalived.conf`:
+Update the configuration accordingly in `/etc/keepalived/keepalived.conf`:
 
 ```bash
 global_defs {
@@ -229,7 +229,7 @@ vrrp_instance VI_1 {
 
 Use the same configuration for the second node but change:
 - state: `BACKUP` instead of `MASTER`
-- priority: `100`instead of `101`
+- priority: `100` instead of `101`
 
 Start Keepalived on both lb nodes:
 
@@ -240,6 +240,7 @@ sudo service keepalived start
 Now, you must be able to ping the virtual IP `192.168.205.100` representing the load balancer cluster.
 
 ``` bash
+# Ping the Keepalived virtual IP
 $ ping 192.168.205.100
 PING 192.168.205.100 (192.168.205.100): 56 data bytes
 64 bytes from 192.168.205.100: icmp_seq=0 ttl=64 time=0.506 ms
@@ -317,7 +318,10 @@ Commercial support is available at
 We can test the resilience of the load balancer cluster when the `MASTER` lb node is going down.
 
 ``` bash
+# Stop the first lb node
 $ multipass stop lb1
+
+# Check lab's nodes
 $ multipass list
 Name                    State             IPv4             Image
 app1                    Running           192.168.205.6    Ubuntu 20.04 LTS
@@ -333,6 +337,10 @@ Send requests on the virtual IP, we can see that all the requests continue to be
 Restart the stopped lb node.
 
 ```bash
+# Start the first lb node
+$ multipass start lb1
+
+# Check lab's nodes
 $ multipass list     
 Name                    State             IPv4             Image
 app1                    Running           192.168.205.6    Ubuntu 20.04 LTS
@@ -342,14 +350,15 @@ lb1                     Running           192.168.205.4    Ubuntu 20.04 LTS
 lb2                     Running           192.168.205.5    Ubuntu 20.04 LTS
 ```
 
-The lb `MASTER` node took back the virtual IP.
+The `MASTER` lb node took back the virtual IP.
 
 ### App server failure
 
-Stop one of the app server.
+Stop one of the app server and see the application is still reachable.
 
 ```bash
-multipass stop app1
+# Stop the first app node
+$ multipass stop app1
 ```
 
 All the requests are well routed to the remaining app2 server. Thanks to the health check, HAProxy has removed the app1 server from the backend pool.
@@ -357,7 +366,8 @@ All the requests are well routed to the remaining app2 server. Thanks to the hea
 We restart the app1 server.
 
 ```bash
-multipass start app1
+# Start the first app node
+$ multipass start app1
 ```
 
 Requests are routed back to both app servers.

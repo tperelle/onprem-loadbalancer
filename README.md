@@ -4,7 +4,7 @@ It is very easy to create load balancers when working on public clouds. But this
 
 Here is an example of load balancing and high-availability solution built with [HAProxy Community Edition](https://www.haproxy.com/documentation/hapee/latest/onepage/) and [Keepalived](https://keepalived.readthedocs.io/en/latest/introduction.html) you can use everywhere.
 
-<img src="docs/images/haproxy_logo.png" height="50px" /> <img src="docs/images/keepalived_logo.png" height="50px" />
+<img src="docs/images/haproxy_logo.png" height="50px" /> <img height="50px" hspace="20"/> <img src="docs/images/keepalived_logo.png" height="50px" />
 
 ## The lab
 

@@ -394,6 +394,12 @@ And here is the report and the graph with the CPU metrics of our 4 VMs during th
 
 <img src="docs/images/ab_result.png" width="220px" /> <img src="docs/images/load_cpu_metrics.png" height="150px" />
 
+What we can note:
+- The load balancing solution works !
+- It works well whereas the size of VMs is small (1 core, 512 Mb of RAM)
+- Curve of both app servers are pretty identical, so the load balancer has well distributed the load
+- The lb `MASTER` node took all the load, the `BACKUP` node remained quiet
+
 ## Conclusion
 
 We have built a fully operational load balancing and High Availability solution for our 2 app nodes. 

@@ -378,6 +378,22 @@ $ multipass start app1
 
 Requests are routed back to both app servers.
 
+### Load
+
+Let's generate some load to see how the load balancer performs. For that I use [ab](https://httpd.apache.org/docs/2.4/en/programs/ab.html) with the following configuration:
+
+- Concurrency: 50
+- Requests: 300 000
+
+```bash
+# Generate load
+ab -c 50 -n 300000 http://192.168.205.100/
+```
+
+And here is the report and the graph with the CPU metrics of our 4 VMs during the test.
+
+<img src="docs/images/ab_result.png" width="220px" /> <img src="docs/images/load_cpu_metrics.png" height="150px" />
+
 ## Conclusion
 
 We have built a fully operational load balancing and High Availability solution for our 2 app nodes. 

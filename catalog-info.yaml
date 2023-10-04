@@ -7,6 +7,9 @@ metadata:
     - url: https://medium.com/linkbynet/on-premise-load-balancing-solution-8875a740c949
       title: On-Premise load balancing solution
       icon: techdocs
+  tags:
+    - network
+    - ha
 spec:
   type: article
   system: github

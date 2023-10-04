@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: onprem-loadbalancer
+  description: Here is an example of load balancing and high-availability solution built with HAProxy Community Edition and Keepalived.
+  links:
+    - url: https://medium.com/linkbynet/on-premise-load-balancing-solution-8875a740c949
+      title: On-Premise load balancing solution
+      icon: techdocs
+spec:
+  type: article
+  system: github
+  lifecycle: production
+  owner: thomas
